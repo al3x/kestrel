@@ -124,6 +124,8 @@ class PersistentQueue(private val persistencePath: String, val name: String,
 
   def currentAge: Long = synchronized { _currentAge }
 
+  def waiterCount: Long = synchronized { waiters.size }
+
   // mostly for unit tests.
   def memoryLength: Long = synchronized { queue.size }
   def memoryBytes: Long = synchronized { _memoryBytes }
